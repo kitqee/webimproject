@@ -10,7 +10,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 
 from apps.webimtest.models import UserVK
-from webimproject.settings import APP_ID, SECURE_KEY
+from webimproject.settings import APP_ID, SECURE_KEY, DOMIAN
 
 
 class LogoutAction(View):
@@ -43,8 +43,8 @@ class VKAuthAction(View):
         auth_url = (
             "https://oauth.vk.com/authorize?client_id={app_id}"
             "&scope=offline,email"
-            "&redirect_uri=http://127.0.0.1/auth/vk/login/callback/"
-            "&response_type=code&v=5.74".format(app_id=APP_ID)
+            "&redirect_uri={domian}/auth/vk/login/callback/"
+            "&response_type=code&v=5.74".format(app_id=APP_ID, domian=DOMIAN)
         )
         return redirect(auth_url)
 
@@ -62,10 +62,11 @@ class VKCallBack(View):
                 "https://oauth.vk.com/access_token?client_id={app_id}"
                 "&client_secret={secure_key}"
                 "&code={code}"
-                "&redirect_uri=http://127.0.0.1/auth/vk/login/callback/".format(
+                "&redirect_uri={domian}/auth/vk/login/callback/".format(
                     app_id=APP_ID,
                     secure_key=SECURE_KEY,
-                    code=request.GET["code"])
+                    code=request.GET["code"],
+                    domian=DOMIAN)
             )
 
         response = requests.get(auth_url)

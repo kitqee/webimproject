@@ -34,6 +34,7 @@ APP_ID = 6440659
 # Защищённый ключ
 SECURE_KEY = "Knj75K3i4cUsNFFOeEBv"
 
+DOMIAN = "https://thawing-coast-84731.herokuapp.com"
 
 # Application definition
 
