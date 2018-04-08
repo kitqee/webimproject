@@ -27,7 +27,7 @@ SECRET_KEY = '&+9s9)(ahtgmv^-5bqr3u34vcxd87v824g(t*79q4swww0f-y9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # ID приложения ВК
 APP_ID = 6440659
