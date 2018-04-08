@@ -1,0 +1,16 @@
+certifi==2018.1.18
+chardet==3.0.4
+defusedxml==0.5.0
+Django==2.0.4
+django-allauth==0.35.0
+enum34==1.1.6
+gunicorn==19.7.1
+idna==2.6
+oauthlib==2.0.7
+python3-openid==3.1.0
+pytz==2018.3
+requests==2.18.4
+requests-oauthlib==0.8.0
+urllib3==1.22
+virtualenv==15.1.0
+vk-api==9.3.2

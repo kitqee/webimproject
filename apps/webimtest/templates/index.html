@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'webimtest.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+  <div class="">
+
+    <ul id="block-base">
+      <li id="base-name">{{ vk_profile.first_name }} {{ vk_profile.last_name }}</li>
+      <li><a id="base-link-vk" href="https://vk.com/id{{ vk_profile.id }}">uID: {{ vk_profile.id }}</a></li>
+      <li><img id="base-ava" src="{{ vk_profile.photo_200_orig }}"></li>
+      <li><button class="button-form" id="btn-send-fake-id">Постоить Граф</button></li>
+    </ul>
+
+    <div id="block-friend">
+      <h3>Друзья:</h3>
+      <table>
+        <tr>
+          <th>uID</th>
+          <th>Онлайн</th>
+          <th>Имя</th>
+          <th>Фамилия</th>
+          <th>Дата рождения</th>
+        </tr>
+        {% for friend in friends %}
+          <tr>
+            <td>{{ friend.id }}</td>
+            <td>{{ friend.online|yesno:"online, offline" }}</td>
+            <td>{{ friend.first_name }}</td>
+            <td>{{ friend.last_name }}</td>
+            <td>{{ friend.bdate|default:"Не указана" }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="block-graph">
+      <hr>
+      <h3>Социальный граф:</h3>
+      <div id="friend-graph"></div>
+    </div>
+
+  </div>
+
+{% endblock %}
+
+{% block bottom %}
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="{% static "webimtest.js" %}"></script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+  <img width="11%" height="11%" src="{% static "images/vklogo.png" %}">
+  <br>
+  <a class="button" href="{% url "vk_login" %}">Авторизация</a>
+
+{% endblock %}
+
+{% block bottom %}
+{% endblock %}
